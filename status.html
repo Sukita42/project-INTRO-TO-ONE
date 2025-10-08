@@ -41,9 +41,9 @@
                     <p>สาขาวิชาวิศวกรรมสารสนเทศและเครือข่าย (INET)</p>
                     <p> kwankanittha29@gmail.com</p>
                 </div>
-                
+
                 <a href="index.html" class="logout">ออกจากระบบ</a>
-                
+
             </div>
     </div>
 </header>
@@ -55,7 +55,7 @@
             <a href="index2.html"  class="menu">หน้าแรก</a>
             <a href="form.html"   class="menu">แบบฟอร์มโครงงาน</a>
             <a href="test.html"   class="menu">ยื่นสอบ/ระบุวันสอบ</a>
-            <a href="status.html" class="menu">เช็กสถานะและติดตามโครงการ</a>
+            <a href="status.html" class="menu active">เช็กสถานะและติดตามโครงงาน</a>
         </aside>
 
         <!-- แถบสัปดาห์ -->
@@ -108,8 +108,11 @@
           <label>อาจารย์ที่ปรึกษา</label>
           <input type="text" value="ผศ.ดร.สุพาภรณ์ ซิ้มเจริญ">
 
+          <label for="">อาจารย์ที่ปรึกษาร่วม</label>
+          <input type="text" id="" value="-">
+
           <label>ประเภทโครงงาน</label>
-          <input type="text" value="โครงงานพัฒนาโปรแกรม (Application Development Project)">
+          <input type="text" value="โครงงานพิเศษ">
 
           <label>ชื่อโครงงานภาษาไทย</label>
           <input type="text" value="เว็บไซต์แนะนำคอร์สเรียนออนไลน์">
@@ -137,29 +140,49 @@
         </form>
       </div>
 
+      <!-- Panel ด้านขวา -->
+    <div class="right-panel-follow">
+      <div class="btn-area">
+        <h5>เอกสารโครงงาน</h5>
+        <input type="file" id="">
+        <a href="#" class="btn-send">ส่ง</a>
+      </div>
+
+      <div class="comment">
+        <p>ความคิดเห็นจากอาจารย์ที่ปรึกษา</p>
+        <textarea class="comm-tch" rows="5" readonly>ควรเพิ่มการอ้างอิงงานวิจัยหรือเอกสารทางวิชาการเพื่อเพิ่มความน่าเชื่อถือของโครงงาน</textarea>
+      </div>
+
+      <div class="comment">
+        <p>ความคิดเห็นจากอาจารย์ประจำวิชา</p>
+        <textarea class="comm-tch" rows="5" readonly>ควรเพิ่มตัวอย่างประกอบในส่วนผลลัพธ์ และตรวจสอบความสอดคล้องระหว่างวัตถุประสงค์กับขอบเขตโครงงาน</textarea>
+      </div>
+
       <!-- สถานะโครงงาน -->
       <div class="sta">
         <p>สถานะโครงงาน</p>
         <div class="tus">อยู่ระหว่างดำเนินการ</div>
       </div>
 
-      <!-- Panel ด้านขวา -->
-      <div class="right-panel-follow">
-        <div class="download">
-          <h5>เอกสารโครงงาน</h5>
-          <input type="file" id="">
-          <a href="#" class="btn-down">ดาวน์โหลด</a>
+      <div class="Follow-up">
+        <h5>ติดตามผลสอบโครงงาน</h5>
+        <div class="status1">
+          <h6>สถานะโครงงาน</h6>
+          <p>รอบสอบ : รอบที่ 1 การสอบนำเสนอหัวข้อโครงงาน</p>
+          <p>สถานะ : ผ่านการสอบ</p>
+          <p>เกรด : A</p>
         </div>
-        <div class="comment">
-          <p>ความคิดเห็น</p>
-          <div class="comm-tch">
-            ควรเพิ่มการอ้างอิงงานวิจัยหรือเอกสารทางวิชาการเพื่อเพิ่มความน่าเชื่อถือของโครงงาน
-          </div>
+
+        <div class="status4">
+          <h6>สถานะโครงงาน</h6>
+          <p>รอบสอบ : รอบที่ 2 การสอบนำเสนอผลงานโครงงานขั้นสุดท้าย</p>
+          <p>สถานะ : รอสอบ</p>
+          <p>เกรด : -</p>
         </div>
       </div>
-
     </div>
   </div>
+</div>
 </div>
 </body>
 </html>

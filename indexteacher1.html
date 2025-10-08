@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>หน้าแรก</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+
+<body>
+<header class="header">
+    <div class="logo">
+        <img src="logo1.png" alt="KMUTNB" />
+    </div>
+
+    <div class="btn-profile">
+
+        <!-- checkbox ซ่อน -->
+        <input type="checkbox" id="toggle-dropdown" hidden>
+
+        <label for="toggle-dropdown" class="profile-label">
+            <div class="text">
+                <div class="name">อาจารย์สมหญิง จิงจองหอง</div>
+                <div class="role">อาจารย์</div>
+            </div>
+            <div class="avatar">
+                <img src="bot.jpg" alt="Profile" class="icon"/>
+            </div>
+        </label>
+
+            <!-- dropdown -->
+            <div class="dropdown">
+                <div class="dropdown-header">
+                    <img src="bot.jpg" alt="Profile" class="dropdown-img">
+                    <div class="dropdown-info">
+                        <h3>อาจารย์</h3>
+                    </div>
+                </div>
+                <div class="dropdown-body">
+                    <p class="teacher-id">0111111111111</p>
+                    <p>อาจารย์สมหญิง จิงจองหอง</p>
+                    <p>อาจารย์ภาควิชาเทคโนโลยีสารสนเทศ (IT)</p>
+                    <p>somying@example.com</p>
+                </div>
+                
+                <a href="index.html" class="logout">ออกจากระบบ</a>
+                
+            </div>
+    </div>
+</header>
+
+<div class="container">
+  <aside class="sidebar">
+  <!-- เมนูเชื่อมไปไฟล์อื่น -->
+    <a href="indexteacher1.html"  class="menu active">อาจารย์ที่ปรึกษา</a>
+    <a href="teach2.html"   class="menu">อาจารย์ประจำวิชา</a>
+    <a href="teach3.html"   class="menu">กรรมการสอบ</a>
+    <a href="teach4.html" class="menu">ระบบกลาง</a>
+  </aside>
+
+ <div class="content-test">
+            <div class="content-layout-test">
+
+                <div class="major">
+                    <label for="major">สาขาวิชา
+                        <select id="major">
+                            <option>สาขาวิชาเทคโนโลยีสารสนเทศ (IT)</option>
+                            <option>สาขาวิชาเทคโนโลยีสารสนเทศ เทียบโอน (ITI)</option>
+                            <option>สาขาวิชาวิศวกรรมสารสนเทศและเครือข่าย (INE)</option>
+                            <option>สาขาวิชาวิศวกรรมสารสนเทศและเครือข่าย เทียบโอน(INET)</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="form-test">
+                    <h6>ประเภทการยื่นสอบ</h6>
+                        <label>
+                            <select>
+                                <option>การสอบนำเสนอหัวข้อโครงงาน</option>
+                                <option>การสอบนำเสนอผลงานโครงงานขั้นสุดท้าย</option>
+                            </select>
+                        </label>
+                       
+                    <h6>เลือกอาจารย์กรรมการสอบทั้งหมด 3 ท่าน</h6>
+                    <p class="note-test">*กรุณาเลือก 4 ท่าน กรณีมีอาจารย์ที่ปรึกษาร่วม</p>
+                    <label>
+                        <p>อาจารย์กรรมการคนที่ 1</p>
+                        <select id="tch1">
+                            <option>รศ.ดร.อนิราช มิ่งขวัญ</option>
+                            <option>ผศ.อรบุษป์ วุฒิกมลชัย</option>
+                            <option>ผศ.ดร.บีสุดา ดาวเรือง</option>
+                            <option>ผศ.ดร.ขนิษฐา นามี</option>
+                            <option>อ.ดร.กาญจน ณ ศรีธะ</option>
+                            <option>ผศ.นพดล บูรณ์กุศล</option>
+                            <option>ผศ.จสต.นพเก้า ทองใบ</option>
+                            <option>ผศ.ดร.นิติการ นาคเจือทอง</option>
+                            <option>ผศ.ดร.นัฎฐพันธ์ นาคพงษ์</option>
+                            <option>ผศ.นิมิต ศรีคำทา</option>
+                            <option>อ.ดร.พิทย์พิมล ชูรอด</option>
+                            <option>ผศ.ดร.พาฝัน ดวงไพศาล</option>
+                            <option>อ.ดร.ประดิษฐ์ พิทักษ์เสถียรกุล</option>
+                            <option>ผศ.พีระศักดิ์ เสรีกุล</option>
+                            <option>ผศ.สมชัย เชียงพงศ์พันธุ์</option>
+                            <option>ผศ.ดร.สุปีติ กุลจันทร์</option>
+                            <option>ผศ.สิวาลัย จินเจือ</option>
+                            <option>ผศ.ดร.สุพาภรณ์ ซิ้มเจริญ</option>
+                            <option>ผศ.ดร.ศรายุทธ ธเนศสกุลวัฒนา</option>
+                            <option>อ.ดร.ศิรินทรา แว่วศรี</option>
+                            <option>อ.ดร.วัชรชัย คงศิริวัฒนา</option>
+                            <option>ผศ.ดร.วันทนี ประจวบศุภกิจ</option>
+                            <option>รศ.ดร.ยุพิน สรรพคุณ</option>
+                        </select>
+
+                        <p>อาจารย์กรรมการคนที่ 2</p>
+                        <select id="tch2">
+                            <option>รศ.ดร.อนิราช มิ่งขวัญ</option>
+                            <option>ผศ.อรบุษป์ วุฒิกมลชัย</option>
+                            <option>ผศ.ดร.บีสุดา ดาวเรือง</option>
+                            <option>ผศ.ดร.ขนิษฐา นามี</option>
+                            <option>อ.ดร.กาญจน ณ ศรีธะ</option>
+                            <option>ผศ.นพดล บูรณ์กุศล</option>
+                            <option>ผศ.จสต.นพเก้า ทองใบ</option>
+                            <option>ผศ.ดร.นิติการ นาคเจือทอง</option>
+                            <option>ผศ.ดร.นัฎฐพันธ์ นาคพงษ์</option>
+                            <option>ผศ.นิมิต ศรีคำทา</option>
+                            <option>อ.ดร.พิทย์พิมล ชูรอด</option>
+                            <option>ผศ.ดร.พาฝัน ดวงไพศาล</option>
+                            <option>อ.ดร.ประดิษฐ์ พิทักษ์เสถียรกุล</option>
+                            <option>ผศ.พีระศักดิ์ เสรีกุล</option>
+                            <option>ผศ.สมชัย เชียงพงศ์พันธุ์</option>
+                            <option>ผศ.ดร.สุปีติ กุลจันทร์</option>
+                            <option>ผศ.สิวาลัย จินเจือ</option>
+                            <option>ผศ.ดร.สุพาภรณ์ ซิ้มเจริญ</option>
+                            <option>ผศ.ดร.ศรายุทธ ธเนศสกุลวัฒนา</option>
+                            <option>อ.ดร.ศิรินทรา แว่วศรี</option>
+                            <option>อ.ดร.วัชรชัย คงศิริวัฒนา</option>
+                            <option>ผศ.ดร.วันทนี ประจวบศุภกิจ</option>
+                            <option>รศ.ดร.ยุพิน สรรพคุณ</option>
+                        </select>
+
+                         <p>อาจารย์กรรมการคนที่ 3</p>
+                        <select id="tch3">
+                            <option>รศ.ดร.อนิราช มิ่งขวัญ</option>
+                            <option>ผศ.อรบุษป์ วุฒิกมลชัย</option>
+                            <option>ผศ.ดร.บีสุดา ดาวเรือง</option>
+                            <option>ผศ.ดร.ขนิษฐา นามี</option>
+                            <option>อ.ดร.กาญจน ณ ศรีธะ</option>
+                            <option>ผศ.นพดล บูรณ์กุศล</option>
+                            <option>ผศ.จสต.นพเก้า ทองใบ</option>
+                            <option>ผศ.ดร.นิติการ นาคเจือทอง</option>
+                            <option>ผศ.ดร.นัฎฐพันธ์ นาคพงษ์</option>
+                            <option>ผศ.นิมิต ศรีคำทา</option>
+                            <option>อ.ดร.พิทย์พิมล ชูรอด</option>
+                            <option>ผศ.ดร.พาฝัน ดวงไพศาล</option>
+                            <option>อ.ดร.ประดิษฐ์ พิทักษ์เสถียรกุล</option>
+                            <option>ผศ.พีระศักดิ์ เสรีกุล</option>
+                            <option>ผศ.สมชัย เชียงพงศ์พันธุ์</option>
+                            <option>ผศ.ดร.สุปีติ กุลจันทร์</option>
+                            <option>ผศ.สิวาลัย จินเจือ</option>
+                            <option>ผศ.ดร.สุพาภรณ์ ซิ้มเจริญ</option>
+                            <option>ผศ.ดร.ศรายุทธ ธเนศสกุลวัฒนา</option>
+                            <option>อ.ดร.ศิรินทรา แว่วศรี</option>
+                            <option>อ.ดร.วัชรชัย คงศิริวัฒนา</option>
+                            <option>ผศ.ดร.วันทนี ประจวบศุภกิจ</option>
+                            <option>รศ.ดร.ยุพิน สรรพคุณ</option>
+                        </select>
+
+                         <p>อาจารย์กรรมการคนที่ 4</p>
+                        <select id="tch4">
+                            <option>-</option>
+                            <option>รศ.ดร.อนิราช มิ่งขวัญ</option>
+                            <option>ผศ.อรบุษป์ วุฒิกมลชัย</option>
+                            <option>ผศ.ดร.บีสุดา ดาวเรือง</option>
+                            <option>ผศ.ดร.ขนิษฐา นามี</option>
+                            <option>อ.ดร.กาญจน ณ ศรีธะ</option>
+                            <option>ผศ.นพดล บูรณ์กุศล</option>
+                            <option>ผศ.จสต.นพเก้า ทองใบ</option>
+                            <option>ผศ.ดร.นิติการ นาคเจือทอง</option>
+                            <option>ผศ.ดร.นัฎฐพันธ์ นาคพงษ์</option>
+                            <option>ผศ.นิมิต ศรีคำทา</option>
+                            <option>อ.ดร.พิทย์พิมล ชูรอด</option>
+                            <option>ผศ.ดร.พาฝัน ดวงไพศาล</option>
+                            <option>อ.ดร.ประดิษฐ์ พิทักษ์เสถียรกุล</option>
+                            <option>ผศ.พีระศักดิ์ เสรีกุล</option>
+                            <option>ผศ.สมชัย เชียงพงศ์พันธุ์</option>
+                            <option>ผศ.ดร.สุปีติ กุลจันทร์</option>
+                            <option>ผศ.สิวาลัย จินเจือ</option>
+                            <option>ผศ.ดร.สุพาภรณ์ ซิ้มเจริญ</option>
+                            <option>ผศ.ดร.ศรายุทธ ธเนศสกุลวัฒนา</option>
+                            <option>อ.ดร.ศิรินทรา แว่วศรี</option>
+                            <option>อ.ดร.วัชรชัย คงศิริวัฒนา</option>
+                            <option>ผศ.ดร.วันทนี ประจวบศุภกิจ</option>
+                            <option>รศ.ดร.ยุพิน สรรพคุณ</option>
+                        </select>
+                    </label>
+
+                    <h6>ระบุวันที่ต้องการสอบ</h6>
+                    <label>
+                        <input type="date" id="day-test">
+                    </label>
+                </div>
+
+                <div class="right-panel-test">
+                    <div class="btn-area">
+                    <h5>เอกสารรูปเล่มโครงงาน</h5>
+                    <input type="file" id="">
+                    <a href="#" class="btn-send">ส่ง</a>
+                    </div>
+
+                    <div class="btn-area">
+                        <h5>สไลด์สำหรับการพรีเซนต์</h5>
+                        <input type="file" id="">
+                        <a href="#" class="btn-send">ส่ง</a>
+                    </div>
+
+                    <div class="btn-test">
+                    <a href="#" class="btn-ed-test">แก้ไข</a>
+                    <a href="#" class="btn-send-test">ส่ง</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>

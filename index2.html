@@ -54,148 +54,183 @@
     <a href="index2.html"  class="menu active">หน้าแรก</a>
     <a href="form.html"   class="menu">แบบฟอร์มโครงงาน</a>
     <a href="test.html"   class="menu">ยื่นสอบ/ระบุวันสอบ</a>
-    <a href="status.html" class="menu">เช็กสถานะและติดตามโครงการ</a>
+    <a href="status.html" class="menu">เช็กสถานะและติดตามโครงงาน</a>
   </aside>
 
   <div class="content-std">
-    <div class="status-project">
-      <p>สถานะ : อยู่ระหว่างดำเนินการ</p>
-    </div>
-    <div class="progress">
-      <p>ความก้าวหน้า : 70%</p>
+    <div class="page-header">
+      <div class="status-wrapper">
+        <div class="status-project">
+          <p>สถานะ <span>อยู่ระหว่างดำเนินการ</span></p>
+        </div>
+        <div class="progress">
+          <p>ความก้าวหน้า <span>10%</span></p>
+        </div>
+      </div>
     </div>
 
-  <div class="content-grid">
-    <div class="Propose">
-      <h5>เสนอหัวข้อโครงงาน</h5>
-          <form>
-            <label for="Project Types"></label>
-            <p>ประเภทโครงงาน</p>
-                <select id="major">
-                  <option>โครงงานพัฒนาโปรแกรม (Application Development Project)</option>
-                  <option>โครงงานระบบสารสนเทศ (Information System Project)</option>
-                  <option>โครงงานวิจัยเชิงทดลอง (Research / Experimental Project)</option>
-                  <option>โครงงานด้านปัญญาประดิษฐ์และข้อมูล (AI / Data Science Project)</option>
-                  <option>โครงงานด้าน Internet of Things (IoT Project)</option>
+    <div class="content-grid">
+      <div class="top-row">
+        <div class="left-column">
+          <div class="Propose">
+            <h5>เสนอหัวข้อโครงงาน</h5>
+            <form>
+              <div class="form-group">
+                <label for="project-type">ประเภทโครงงาน</label>
+                <select id="project-type" class="form-control">
+                  <option>โครงงานพิเศษ</option>
+                  <option>โครงงานสหกิจ</option>
                 </select>
+              </div>
 
-            <p>หัวข้อโครงงาน</p>
-              <label for="">ชื่อโครงงานภาษาไทย</label>
-              <input type="text" id="" value="เว็บไซต์แนะนำคอร์สเรียนออนไลน์">
+              <div class="form-group">
+                <h6>หัวข้อโครงงาน</h6>
+                <label for="thai-title">ชื่อโครงงานภาษาไทย</label>
+                <input type="text" id="thai-title" class="form-control" value="เว็บไซต์แนะนำคอร์สเรียนออนไลน์">
 
-              <label for="">ชื่อโครงงานภาษาอังกฤษ</label>
-              <input type="text" id="" value="E-Learning Recommendation Website">
+                <label for="eng-title">ชื่อโครงงานภาษาอังกฤษ</label>
+                <input type="text" id="eng-title" class="form-control" value="E-Learning Recommendation Website">
+              </div>
 
-              <label for="">อาจารย์ที่ปรึกษา</label>
-              <input type="text" id="" value="ผศ.ดร.สุพาภรณ์ ซิ้มเจริญ">
-            
-            <a href="#" class="btn-edit">แก้ไขข้อมูล</a>
-            <a href="#" class="btn-submit">ยืนยัน</a>
-    </div> 
-  </div>
+              <div class="form-group advisor-section">
+                <label for="advisor">อาจารย์ที่ปรึกษา</label>
+                <input type="text" id="advisor" class="form-control" value="ผศ.ดร.สุพาภรณ์ ซิ้มเจริญ">
+
+                <label for="co-advisor">อาจารย์ที่ปรึกษาร่วม</label>
+                <input type="text" id="co-advisor" class="form-control" value="-">
+              </div>
+              
+              <div class="button-group">
+                <a href="#" class="btn-edit">แก้ไขข้อมูล</a>
+                <a href="#" class="btn-submit">ยืนยัน</a>
+              </div>
+            </form>
+          </div>
+
+          <div class="Follow-up">
+            <h5>ติดตามผลสอบโครงงาน</h5>
+            <div class="status1">
+              <h6>สถานะโครงงาน</h6>
+              <div class="status-info">
+                <p><strong>รอบสอบ :</strong> รอบที่ 1 การนำเสนอหัวข้อโครงงาน</p>
+                <p><strong>สถานะ :</strong> <span class="status-passed">ผ่านการสอบ</span></p>
+                <p><strong>เกรด :</strong> <span class="grade">A</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-std">
+          <h5>ข้อมูลนักศึกษา</h5>
+          <form>
+            <div class="form-group">
+              <label for="num">จำนวนสมาชิก</label>
+              <select id="num" class="form-control">
+                <option value="1">1 คน</option>
+                <option value="2" selected>2 คน</option>
+                <option value="3">3 คน</option>
+                <option value="4">4 คน</option>
+              </select>
+            </div>
+
+            <div class="members-list">
+              <h6>รายชื่อสมาชิก</h6>
+              
+              <div class="member-info">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="mem1">ชื่อ-นามสกุลนักศึกษาคนที่ 1</label>
+                    <input type="text" id="mem1" class="form-control" value="นางสาวขวัญขนิษฐา จันทร์พึ่งพลาย">
+                  </div>
+                  <div class="form-group">
+                    <label for="std-id1">รหัสนักศึกษา</label>
+                    <input type="text" id="std-id1" class="form-control" value="6806022511137">
+                  </div>
+                </div>
+              </div>
+
+              <div class="member-info">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="mem2">ชื่อ-นามสกุลนักศึกษาคนที่ 2</label>
+                    <input type="text" id="mem2" class="form-control" value="นางสาวสุกฤตา โรจนบัณฑิต">
+                  </div>
+                  <div class="form-group">
+                    <label for="std-id2">รหัสนักศึกษา</label>
+                    <input type="text" id="std-id2" class="form-control" value="6806022511056">
+                  </div>
+                </div>
+              </div>
+
+              <div class="member-info">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="mem3">ชื่อ-นามสกุลนักศึกษาคนที่ 3</label>
+                    <input type="text" id="mem3" class="form-control" value="-">
+                  </div>
+                  <div class="form-group">
+                    <label for="std-id3">รหัสนักศึกษา</label>
+                    <input type="text" id="std-id3" class="form-control" value="-">
+                  </div>
+                </div>
+              </div>
+
+              <div class="member-info">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="mem4">ชื่อ-นามสกุลนักศึกษาคนที่ 4</label>
+                    <input type="text" id="mem4" class="form-control" value="-">
+                  </div>
+                  <div class="form-group">
+                    <label for="std-id4">รหัสนักศึกษา</label>
+                    <input type="text" id="std-id4" class="form-control" value="-">
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="major">เลือกสาขา</label>
+                <select id="major" class="form-control">
+                  <option>สาขาวิชาเทคโนโลยีสารสนเทศ (IT)</option>
+                  <option>สาขาวิชาวิศวกรรมสารสนเทศและเครือข่าย (INE)</option>
+                  <option>สาขาวิชาเทคโนโลยีสารสนเทศ (ITI)</option>
+                  <option>สาขาวิชาเทคโนโลยีสารสนเทศ (ITT)</option>
+                  <option selected>สาขาวิชาวิศวกรรมสารสนเทศและเครือข่าย (INET)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="button-group">
+              <a href="#" class="btn-edit">แก้ไขข้อมูล</a>
+              <a href="#" class="btn-submit">ยืนยัน</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
 
   <div class="more-detail">
     <h5>รายละเอียดโครงงาน</h5>
       <form>
         <label for="background">ความเป็นมา</label>
-        <input type="text" id="" value="ปัจจุบันมีคอร์สเรียนออนไลน์จำนวนมาก...">
+          <textarea rows="3">ปัจจุบันมีคอร์สเรียนออนไลน์จำนวนมาก...</textarea>
 
-        <label for="objectives">วัตถุประสงค์ของโครงงาน</label>
-        <input tpye="text" id="" value="เพื่อพัฒนาเว็บไซต์แนะนำคอร์สเรียนตามความสนใจของผู้ใช้...">
+          <label for="objectives">วัตถุประสงค์ของโครงงาน</label>
+          <textarea rows="3">1. เพื่อพัฒนาเว็บไซต์แนะนำคอร์สเรียนตามความสนใจของผู้ใช้...</textarea>
 
-        <label for="scope">ขอบเขตของโครงงาน</label>
-        <input tpye="text" id="" value="ฟังก์ชันหลักที่มีในระบบ...">
+          <label for="scope">ขอบเขตของโครงงาน</label>
+          <textarea rows="3">1. ฟังก์ชันหลักที่มีในระบบ...</textarea>
 
-        <label for="tools">เทคโนโลยีหรือเครื่องมือที่ใช้</label>
-        <input type="text" id="" value="Frontend: HTML, CSS..   Tools: Figma, GitHub, VS Code">
+          <label for="tools">เทคโนโลยีหรือเครื่องมือที่ใช้</label>
+          <textarea rows="3">1.Frontend: HTML, CSS...</textarea>
 
-        <label for="results">ผลที่คาดว่าจะได้รับ</label>
-        <input tpye="" id="" value="ผู้ใช้สามารถค้นหาและเปรียบเทียบคอร์สเรียนได้สะดวก...">
+          <label for="results">ผลที่คาดว่าจะได้รับ</label>
+          <textarea rows="3">1. ผู้ใช้สามารถค้นหาและเปรียบเทียบคอร์สเรียนได้สะดวก...</textarea>
 
-        <label for="process">ขั้นตอนการดำเนินงาน</label>
-        <input tpye="" id="" value="ศึกษาข้อมูลและรวบรวมความต้องการ...">
+          <label for="process">ขั้นตอนการดำเนินงาน</label>
+          <textarea rows="3">1. ศึกษาข้อมูลและรวบรวมความต้องการ...</textarea>
       </form>
   </div>
-
-  <div class="info-std">
-        <h5>ข้อมูลนักศึกษา</h5>
-        <label for="num">จำนวนสมาชิก</label>
-          <select id="num">
-          <option value="1">1 คน</option>
-          <option value="2">2 คน</option>
-          <option value="3">3 คน</option>
-          <option value="4">4 คน</option>
-        </select>
-
-            <p>รายชื่อสมาชิก</p>
-              <label for="mem1">ชื่อ-นามสกุลนักศึกษาคนที่ 1</label>
-              <input type="text" id="mem1" value="นางสาวขวัญขนิษฐา จันทร์พึ่งพลาย">
-
-              <label for="std-id1">รหัสนักศึกษาคนที่ 1</label>
-              <input type="text" id="std-id1" value="6806022511137">
-
-              <label for="mem2">ชื่อ-นามสกุลนักศึกษาคนที่ 2</label>
-              <input type="text" id="mem2" value="นางสาวสุกฤตา โรจนบัณฑิต">
-
-              <label for="std-id2">รหัสนักศึกษาคนที่ 2</label>
-              <input type="text" id="std-id2" value="6806022511056">
-
-              <label for="mem3">ชื่อ-นามสกุลนักศึกษาคนที่ 3</label>
-              <input type="text" id="mem3" value="-">
-
-              <label for="std-id3">รหัสนักศึกษาคนที่ 3</label>
-              <input type="text" id="std-id3" value="-">
-
-              <label for="mem4">ชื่อ-นามสกุลนักศึกษาคนที่ 4</label>
-              <input type="text" id="mem4" value="-">
-
-              <label for="std-id4">รหัสนักศึกษาคนที่ 4</label>
-              <input type="text" id="std-id4" value="-">
-
-            <label for="major">เลือกสาขา</label>
-              <select id="major">
-                <option>สาขาวิชาเทคโนโลยีสารสนเทศ (IT)</option>
-                <option>สาขาวิชาวิศวกรรมสารสนเทศและเครือข่าย (INE)</option>
-                <option>สาขาวิชาเทคโนโลยีสารสนเทศ (ITI)</option>
-                <option>สาขาวิชาเทคโนโลยีสารสนเทศ (ITT)</option>
-                <option>สาขาวิชาวิศวกรรมสารสนเทศและเครือข่าย (INET)</option>
-              </select>
-            </form>
-
-            <a href="#" class="btn-edit">แก้ไขข้อมูล</a>
-            <a href="#" class="btn-submit">ยืนยัน</a>
-    </div>   
-
-    <div class="Follow-up">
-      <h5>ติดตามผลสอบโครงงาน</h5>
-      <div class="status1">
-        <h6>สถานะโครงงาน</h6>
-        <p>รอบสอบ : รอบที่ 1 เสนอหัวข้อโครงงาน</p>
-        <p>สถานะ : ผ่านการสอบ</p>
-        <p>เกรด : A</p>
-      </div>
-
-      <div class="status2">
-        <h6>สถานะโครงงาน</h6>
-        <p>รอบสอบ : รอบที่ 2 นำเสนอความคืบหน้าโครงงาน</p>
-        <p>สถานะ : ต้องแก้ไข</p>
-        <p>เกรด : B</p>
-      </div> 
-
-      <div class="status3">
-        <h6>สถานะโครงงาน</h6>
-        <p>รอบสอบ : รอบที่ 3 นำเสนอความคืบหน้าโครงงาน</p>
-        <p>สถานะ : ต้องแก้ไข</p>
-        <p>เกรด : B+</p>
-      </div>
-
-      <div class="status4">
-        <h6>สถานะโครงงาน</h6>
-        <p>รอบสอบ : รอบที่ 4 การนำเสนอผลงานโครงงานขั้นสุดท้าย</p>
-        <p>สถานะ : รอสอบ</p>
-        <p>เกรด : -</p>
-      </div>
-    </div>
   </div>
 </div>
 </body>

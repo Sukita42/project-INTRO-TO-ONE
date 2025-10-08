@@ -1,0 +1,525 @@
+/* CSS Variables */
+:root {
+  --primary-color: #a33a21;
+  --primary-light: #c44a2d;
+  --primary-dark: #872b16;
+  --white: #ffffff;
+  --gray-100: #f5f3ed;
+  --gray-200: #e0e0e0;
+  --gray-300: #d3dadd;
+  --gray-400: #999;
+  --gray-800: #333;
+  --success: #37b448;
+  --success-hover: #2d8639;
+  --danger: #d3463c;
+  --danger-hover: #b23a2d;
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+  --shadow: 0 4px 12px rgba(0,0,0,0.1);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.15);
+  --border-radius-sm: 6px;
+  --border-radius: 8px;
+  --border-radius-lg: 12px;
+  --transition: all 0.3s ease;
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+}
+
+/* Reset & Base Styles */
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: var(--gray-100);
+  min-width: 1200px;
+}
+
+/* Header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #a33a21; 
+    padding: 30px 40px;
+}
+
+.header .logo img {
+    height: 80px;
+    padding-top: 10px;
+}
+
+/* Layout หลัก */
+.container {
+  display: flex;
+  min-height: 100vh;
+  justify-content: space-between;
+  align-items: flex-start; 
+  padding: 20px;
+  background: #f5f3ed;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100vh;
+  background: #a33a21;
+  flex-direction: column;
+  padding-top: 220px; 
+  overflow-y: auto;
+}
+
+/* เมนู */
+.menu {
+  display: block;
+  padding: 15px 30px;
+  margin: 10px 0;
+  text-align: right;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.menu:hover {
+  background: #f5f3ed;
+  color: #a33a21;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.menu.active {
+  background: #f5f3ed;
+  color: #a33a21;
+  font-weight: 500;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+/* เนื้อหาหลัก */
+.content-index {
+  margin-left: 250px; 
+  flex: 1;
+  padding: 180px 20px 20px 20px; 
+  min-width: 1000px; 
+}
+
+.content-index h1 {
+  color: black;
+  font-size: 45px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  
+}
+
+/* Note */
+.note {
+  font-size: 12px;
+  color: red;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.note-password {
+  font-size: 11px;
+  color: grey;
+  margin-top: -7px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.note-for-password {
+  font-size: 14px;
+  color: grey;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.btn-profile {
+    display: flex;
+    align-items: center;
+    padding: 8px 25px;
+    background: #d3dadd;
+    color: black;
+    text-decoration: none;
+    border-radius: 8px;
+    max-width: 300px;
+    overflow: hidden;
+    gap: 12px;
+}
+
+.btn-profile .text {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    min-width: 0; 
+}
+
+.btn-profile .name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    position: relative;
+}
+
+.btn-profile .role {
+    font-size: 14px;
+    color: #555;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+.btn-profile .avatar {
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0; 
+}
+
+.btn-profile .avatar .icon {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* ซ่อน checkbox */
+#toggle-dropdown {
+    display: none;
+}
+
+/* label เป็นตัวคลิกแทน profile */
+.profile-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+/* Dropdown เริ่มต้นซ่อน */
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 120px;
+    right: 55px;
+    width: 300px;
+    background: #dfe3e6;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    padding: 10px;
+    z-index: 1000;
+}
+
+#toggle-dropdown:checked + .profile-label + .dropdown {
+    display: block;
+}
+
+/* Dropdown content */
+.dropdown-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+.dropdown-header img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.dropdown-info h3 {
+    margin: 0;
+    margin-bottom: 5px;
+    font-size: 20px;
+    color: #2676df;
+}
+
+.dropdown-body p {
+    font-size: 14px;
+    color: #333;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.dropdown-body p.student-id {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.logout {
+    display: inline-block;
+    width: 90%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-left: 7px;
+    background: rgb(219, 76, 76);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+
+.logout:hover {
+    background: rgb(179, 54, 54);
+    transition: 0.3s;
+}
+
+/*อาจารย์ที่ปรึกษา*/
+/* ยื่นสอบและระบุวันสอบ */
+.content-test {
+  width: 100%;
+  padding: 20px 40px;
+  background-color: #f5f3ed;;
+  box-sizing: border-box;
+  margin-top: 170px;
+  margin-left: 210px;
+}
+
+/* โครงร่างภายใน */
+.content-layout-test {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto 1fr auto;
+  gap: 20px;
+}
+
+/* สถานะโครงงาน */
+.major {
+  grid-column: 1 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  margin-bottom: 20px;
+}
+
+.status-wrapper {
+  grid-column: 1 / 3;
+  display: flex;
+  align-items: stretch;
+  background: linear-gradient(45deg, #a33a21, #c44a2d);
+  padding: 2px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.status-project,
+.progress {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 25px;
+  background: #fff;
+}
+
+.status-project {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-right: 1px solid #eee;
+}
+
+.progress {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.status-project p,
+.progress p {
+  margin: 0;
+  font-weight: 600;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.status-project span,
+.progress span {
+  display: inline-block;
+  padding: 4px 12px;
+  background: #fff3f1;
+  color: #a33a21;
+  border-radius: 6px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.status-project span:hover,
+.progress span:hover {
+  transform: translateY(-1px);
+  background: #a33a21;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(163,58,33,0.2);
+}
+
+.status-wrapper:hover {
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  transform: translateY(-1px);
+  transition: all 0.3s ease;
+}
+
+/* Style for the major select to make it visually appealing */
+.major label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.major select#major {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #ffffff;
+  border: 1px solid rgba(0,0,0,0.12);
+  padding: 10px 42px 10px 14px; /* leave space for arrow */
+  font-size: 16px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+  transition: all 0.18s ease;
+  cursor: pointer;
+  min-width: 420px;
+  color: #333;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path fill='%23a33a21' d='M6 8L0 0h12z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+}
+
+.major select#major:focus {
+  outline: none;
+  border-color: #a33a21;
+  box-shadow: 0 0 0 6px rgba(163,58,33,0.06);
+  transform: translateY(-1px);
+}
+
+.major select#major option {
+  font-size: 15px;
+}
+
+.status-test p {
+  font-weight: 600;
+}
+
+.test {
+  background-color: #f8d7da;
+  color: #b23a2d;
+  padding: 5px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+/* กล่องรายละเอียดโครงงาน (ซ้าย) */
+.form-test{
+  background: #e0e0e0;
+  border-radius: 15px;
+  padding: 20px;
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+}
+
+.form-test h6{
+  display: block;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 24px
+}
+
+.form-test {
+  display: block;
+  font-weight: 500;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 16px
+}
+
+.form-test input{
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 14px;
+}
+
+.note-test {
+  font-size: 14px;
+  color: rgb(230, 65, 65);
+  margin-top: 5px;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+/* panelด้านขวา */
+.right-panel-test {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: stretch;
+}
+
+.btn-ed-test, .btn-send-test {
+  display: inline-block;
+  text-align: center;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.btn-ed-test {
+  background: #d3463c;
+  color: white;
+}
+
+.btn-send-test {
+  background: #37b448;
+  color: #fff;
+}
+
+.btn-ed-test {
+  background: #872b16;
+}
+
+.btn-send-test:hover {
+  background: #2d8639;
+}
+
+/* ปุ่มล่าง */
+.btn-test {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
