@@ -52,11 +52,121 @@
 <div class="container">
   <aside class="sidebar">
   <!-- เมนูเชื่อมไปไฟล์อื่น -->
-    <a href="indexteacher1.html"  class="menu active">อาจารย์ที่ปรึกษา</a>
+    <a href="indexteacher1.html"  class="menu">อาจารย์ที่ปรึกษา</a>
     <a href="teach2.html"   class="menu">อาจารย์ประจำวิชา</a>
     <a href="teach3.html"   class="menu">กรรมการสอบ</a>
-    <a href="teach4.html" class="menu">ระบบกลาง</a>
+    <a href="teach4.html" class="menu active">ระบบกลาง</a>
   </aside>
+
+  <style>
+  body {
+    font-family: "Sarabun", sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 30px;
+  }
+
+  .dashboard {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  /* พื้นที่ด้านซ้าย */
+  .left-panel {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    width: 65%;
+  }
+
+  .info-box {
+    background: #d9d9d9;
+    border-radius: 10px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .info-box .count {
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+
+  /* พื้นที่ด้านขวา */
+  .right-panel {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 120px; /* ระยะห่างระหว่างบรรทัด */
+    padding-top: 20px;
+  }
+
+  .right-panel p {
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  /* Responsive สำหรับจอเล็ก */
+  @media (max-width: 768px) {
+    .dashboard {
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+    .left-panel {
+      width: 100%;
+      grid-template-columns: 1fr;
+    }
+    .right-panel {
+      width: 100%;
+      align-items: center;
+      text-align: center;
+      gap: 40px;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <div class="dashboard">
+    <!-- ส่วนซ้าย -->
+    <div class="left-panel">
+      <div class="info-box">
+        <div>จำนวนนักศึกษาในระบบ</div>
+        <div class="count">45 คน</div>
+      </div>
+
+      <div class="info-box">
+        <div>จำนวนอาจารย์ประจำวิชาในระบบ</div>
+        <div class="count">12 คน</div>
+      </div>
+
+      <div class="info-box">
+        <div>จำนวนอาจารย์ที่ปรึกษาในระบบ</div>
+        <div class="count">8 คน</div>
+      </div>
+
+      <div class="info-box">
+        <div>จำนวนกรรมการสอบในระบบ</div>
+        <div class="count">10 คน</div>
+      </div>
+    </div>
+
+    <!-- ส่วนขวา -->
+    <div class="right-panel">
+      <p>กำหนดกรรมการสอบ</p>
+      <p>รายงานสรุปโครงงาน</p>
+    </div>
+  </div>
+  
 </div>
 </body>
 </html>

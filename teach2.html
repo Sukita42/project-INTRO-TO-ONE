@@ -7,6 +7,354 @@
     <link rel="stylesheet" href="style2.css">
 </head>
 
+<style>
+
+  .container {
+    display: flex;
+    min-height: 100vh;
+  }
+
+  .content-test {
+    flex: 1;
+    margin-left: 150px;
+    padding-top: auto;
+    background: var(--background, #f5f3ed);
+  }
+
+  .content-layout-test {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .content-wrapper {
+    width: 100%;
+    max-width: 1400px;
+  }
+
+  /* กล่องสรุปด้านบน */
+  .summary-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 32px;
+    width: 105.5%;
+  }
+
+  .summary-box {
+    background: var(--white, #ffffff);
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .summary-box .number {
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--primary, #a33a21);
+    line-height: 1;
+  }
+
+  .summary-box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  }
+
+  /* กล่องรายการโครงงาน */
+  .project-card {
+    background: var(--white, #ffffff);
+    border-radius: 12px;
+    padding: 40px;
+    margin-bottom: 32px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    width: 100%;
+    border: 1px solid rgba(0,0,0,0.05);
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .project-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  }
+
+  .project-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 48px;
+    align-items: start;
+    min-height: 120px;
+    padding: 0 40px;
+  }
+
+  .left-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .left-section strong {
+    font-size: 18px;
+    color: var(--gray-800, #343a40);
+  }
+
+  .left-section div:nth-child(2) {
+    color: var(--gray-600, #6c757d);
+  }
+
+  .actions {
+    display: flex;
+    gap: 16px;
+    margin-top: 12px;
+  }
+
+  .actions a {
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .actions a:first-child {
+    background: var(--primary, #a33a21);
+    color: white;
+  }
+
+  .actions a:last-child {
+    background: var(--gray-200, #e9ecef);
+    color: var(--gray-700, #495057);
+  }
+
+  .actions a:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+
+  /* Modal Styles */
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .modal-content {
+    position: relative;
+    background-color: #fff;
+    padding: 40px;
+    width: 85%;
+    max-width: 900px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.3s ease;
+    margin: 0;
+  }
+
+  .close-button {
+    position: absolute;
+    right: 25px;
+    top: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #666;
+    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #f8f9fa;
+  }
+
+  .close-button:hover {
+    color: #000;
+    background-color: #e9ecef;
+    transform: rotate(90deg);
+  }
+
+  .modal-header {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #f0f0f0;
+  }
+
+  .modal-header h2 {
+    color: var(--primary, #a33a21);
+    font-size: 24px;
+    margin: 0;
+  }
+
+  .modal-body {
+    margin-bottom: 25px;
+    line-height: 1.6;
+  }
+
+  .modal-body p {
+    margin: 12px 0;
+  }
+
+  .modal-body strong {
+    color: #343a40;
+    font-size: 16px;
+  }
+
+  .modal-footer {
+    padding-top: 20px;
+    border-top: 2px solid #f0f0f0;
+    text-align: right;
+  }
+
+  .modal-footer button {
+    padding: 10px 24px;
+    background: var(--primary, #a33a21);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+  }
+
+  .modal-footer button:hover {
+    background: #8a2e1a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .right-section {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 200px;
+  }
+
+  .right-section div:first-child {
+    font-weight: 600;
+    color: var(--primary, #a33a21);
+    font-size: 16px;
+  }
+
+  .right-section div:last-child {
+    color: var(--gray-600, #6c757d);
+    font-size: 14px;
+  }
+
+  @media (max-width: 1200px) {
+    .summary-container {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+  }
+
+  @media (max-width: 768px) {
+    .summary-container {
+      padding: 0 16px;
+    }
+    .project-card {
+      margin: 0 16px 16px;
+      padding: 16px;
+    }
+    .project-content {
+      grid-template-columns: 1fr;
+    }
+    .right-section {
+      text-align: left;
+      margin-top: 16px;
+    }
+    .actions {
+      flex-direction: column;
+    }
+    .actions a {
+      text-align: center;
+    }
+  }
+</style>
+
+<script>
+function openModal(event, modalId) {
+    event.preventDefault();
+    const modal = document.getElementById(modalId);
+    modal.style.display = "flex";
+    document.body.style.overflow = "hidden";
+    
+    // Add fade-in effect using class
+    requestAnimationFrame(() => {
+        modal.classList.add('show');
+    });
+}
+
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    modal.classList.remove('show');
+    
+    // Wait for animation to finish before hiding
+    setTimeout(() => {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto";
+    }, 300);
+}
+
+// Close modal when clicking outside of it
+window.onclick = function(event) {
+    if (event.target.classList.contains('modal')) {
+        const modalId = event.target.id;
+        closeModal(modalId);
+    }
+}
+
+// Add escape key support
+document.addEventListener('keydown', function(event) {
+    if (event.key === "Escape") {
+        const modals = document.getElementsByClassName('modal');
+        for (let modal of modals) {
+            if (modal.style.display === "flex") {
+                closeModal(modal.id);
+            }
+        }
+    }
+});
+</script>
+
 <body>
 <header class="header">
     <div class="logo">
@@ -52,11 +400,144 @@
 <div class="container">
   <aside class="sidebar">
   <!-- เมนูเชื่อมไปไฟล์อื่น -->
-    <a href="indexteacher1.html"  class="menu active">อาจารย์ที่ปรึกษา</a>
-    <a href="teach2.html"   class="menu">อาจารย์ประจำวิชา</a>
+    <a href="indexteacher1.html"  class="menu">อาจารย์ที่ปรึกษา</a>
+    <a href="teach2.html"   class="menu active">อาจารย์ประจำวิชา</a>
     <a href="teach3.html"   class="menu">กรรมการสอบ</a>
     <a href="teach4.html" class="menu">ระบบกลาง</a>
   </aside>
+
+  <div class="content-test">
+    <div class="content-layout-test">
+
+                          <div class="content-wrapper">
+                      <!-- ส่วนสรุปด้านบน -->
+                      <div class="summary-container">
+                        <div class="summary-box">
+                          <div>จำนวนโครงงานทั้งหมด</div>
+                          <div class="number">24</div>
+                          <div>โครงงาน</div>
+                        </div>
+                        <div class="summary-box">
+                          <div>จำนวนที่โครงงานที่ผ่าน</div>
+                          <div class="number">15</div>
+                          <div>โครงงาน</div>
+                        </div>
+                        <div class="summary-box">
+                          <div>จำนวนที่โครงงานที่รอดำเนินการ</div>
+                          <div class="number">9</div>
+                          <div>โครงงาน</div>
+                        </div>
+                      </div>
+
+                      <!-- การ์ดโครงงาน 1 -->
+                    <div class="project-card">
+                      <div class="project-content">
+                        <div class="left-section">
+                          <div><strong>ชื่อโครงงาน</strong></div>
+                          <div>ชื่อผู้จัดทำ</div>
+                          <div class="actions">
+                            <a href="#" onclick="openModal(event, 'modal1')">ดูรายละเอียด</a>
+                            <a href="#">ให้ความคิดเห็น</a>
+                          </div>
+                          <!-- Modal -->
+                          <div id="modal1" class="modal">
+                            <div class="modal-content">
+                              <span class="close-button" onclick="closeModal('modal1')">&times;</span>
+                              <div class="modal-header">
+                                <h2>รายละเอียดโครงงาน</h2>
+                              </div>
+                              <div class="modal-body">
+                                <p><strong>ชื่อโครงงาน:</strong> <span id="projectName">ชื่อโครงงาน</span></p>
+                                <p><strong>ผู้จัดทำ:</strong> <span id="authors">ชื่อผู้จัดทำ</span></p>
+                                <p><strong>รายละเอียด:</strong></p>
+                                <p>รายละเอียดโครงงานจะแสดงที่นี่...</p>
+                              </div>
+                              <div class="modal-footer">
+                                <button onclick="closeModal('modal1')" style="padding: 8px 16px; background: var(--primary, #a33a21); color: white; border: none; border-radius: 8px; cursor: pointer;">ปิด</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="right-section">
+                          <div>สถานะโครงงาน</div>
+                          <div>ลงชื่อนำดำเนินการ</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- การ์ดโครงงาน 2-5 -->
+                    <div class="project-card">
+                      <div class="project-content">
+                        <div class="left-section">
+                          <div><strong>ระบบจัดการโครงงานนักศึกษา</strong></div>
+                          <div>นายสมชาย ใจดี, นางสาวสมหญิง รักเรียน</div>
+                          <div class="actions">
+                            <a href="#">ดูรายละเอียด</a>
+                            <a href="#">ให้ความคิดเห็น</a>
+                          </div>
+                        </div>
+                        <div class="right-section">
+                          <div>อยู่ระหว่างดำเนินการ</div>
+                          <div>รอการตรวจสอบ</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="project-card">
+                      <div class="project-content">
+                        <div class="left-section">
+                          <div><strong>แอปพลิเคชันแนะนำการท่องเที่ยว</strong></div>
+                          <div>นายวิชัย เรียนเก่ง, นางสาวพิมพ์ใจ ตั้งใจ</div>
+                          <div class="actions">
+                            <a href="#">ดูรายละเอียด</a>
+                            <a href="#">ให้ความคิดเห็น</a>
+                          </div>
+                        </div>
+                        <div class="right-section">
+                          <div>รอการอนุมัติ</div>
+                          <div>ส่งเอกสารแล้ว</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="project-card">
+                      <div class="project-content">
+                        <div class="left-section">
+                          <div><strong>ระบบจัดการร้านอาหารออนไลน์</strong></div>
+                          <div>นายธีรศักดิ์ มุ่งมั่น, นางสาวรักษ์ สมใจ</div>
+                          <div class="actions">
+                            <a href="#">ดูรายละเอียด</a>
+                            <a href="#">ให้ความคิดเห็น</a>
+                          </div>
+                        </div>
+                        <div class="right-section">
+                          <div>ผ่านการอนุมัติ</div>
+                          <div>ดำเนินการเสร็จสิ้น</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="project-card">
+                      <div class="project-content">
+                        <div class="left-section">
+                          <div><strong>แอปพลิเคชันจัดการตารางเรียน</strong></div>
+                          <div>นายภาคภูมิ ศรีไทย, นางสาวมานี รักดี</div>
+                          <div class="actions">
+                            <a href="#">ดูรายละเอียด</a>
+                            <a href="#">ให้ความคิดเห็น</a>
+                          </div>
+                        </div>
+                        <div class="right-section">
+                          <div>อยู่ระหว่างดำเนินการ</div>
+                          <div>รอการแก้ไข</div>
+                        </div>
+                      </div>
+                    </div>
+                    </div> 
+
+    </div>
+  </div>
+ 
 </div>
 </body>
 </html>
