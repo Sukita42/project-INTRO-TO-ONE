@@ -17,7 +17,7 @@
   /* กล่องสรุปด้านบน */
   .summary-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 24px;
     margin-bottom: 32px;
     width: 105.5%;
@@ -374,8 +374,8 @@
   <aside class="sidebar">
   <!-- เมนูเชื่อมไปไฟล์อื่น -->
     <a href="indexteacher1.html"  class="menu">อาจารย์ที่ปรึกษา</a>
-    <a href="teach2.html"   class="menu active">อาจารย์ประจำวิชา</a>
-    <a href="teach3-1.html"   class="menu">กรรมการสอบ</a>
+    <a href="teach2.html"   class="menu">อาจารย์ประจำวิชา</a>
+    <a href="teach3-1.html"   class="menu  active">กรรมการสอบ</a>
     <a href="teach4.html" class="menu">ระบบกลาง</a>
   </aside>
 
@@ -384,22 +384,17 @@
 
                       <div class="content-wrapper">
                       <!-- ส่วนสรุปด้านบน -->
-                      <div class="summary-container">
-                        <div class="summary-box">
-                          <div>จำนวนโครงงานทั้งหมด</div>
-                          <div class="number">24</div>
-                          <div>โครงงาน</div>
-                        </div>
-                        <div class="summary-box">
-                          <div>จำนวนที่โครงงานที่ผ่าน</div>
-                          <div class="number">15</div>
-                          <div>โครงงาน</div>
-                        </div>
-                        <div class="summary-box">
-                          <div>จำนวนที่โครงงานที่รอดำเนินการ</div>
-                          <div class="number">9</div>
-                          <div>โครงงาน</div>
-                        </div>
+                        <div class="summary-container">
+                            <div class="summary-box">
+                                <div>จำนวนโครงงานที่รอประเมินการสอบ</div>
+                                <div class="number">10</div>
+                                <div>โครงงาน</div>
+                            </div>
+                            <div class="summary-box">
+                                <div>จำนวนที่โครงงานที่สอบผ่าน</div>
+                                <div class="number">7</div>
+                                <div>โครงงาน</div>
+                            </div>
                       </div>
 
                     <!-- การ์ดโครงงาน 1 -->
@@ -414,19 +409,13 @@
                                       <a href="#" onclick="openModal(event, 'modal1',
                                         'ระบบจัดการโครงงานนักศึกษา',
                                         'นายสมชาย ใจดี, นางสาวสมหญิง รักเรียน',
-                                        `ระบบจัดการโครงงานนักศึกษาเป็นระบบที่ช่วยให้ทั้งนักศึกษาและอาจารย์สามารถบริหารจัดการข้อมูลโครงงานได้อย่างเป็นระบบ เช่น:
-                                          - เพิ่ม/ลบโครงงาน
-                                          - ส่งเอกสาร
-                                          - ติดตามสถานะโครงงาน
-                                          - ตรวจสอบความคืบหน้า
-
-                                          ระบบนี้ออกแบบมาให้ใช้งานง่าย และสามารถเข้าถึงได้ทุกที่ทุกเวลา ผ่านระบบออนไลน์`)">ดูรายละเอียด</a>
+                                        ``)">ประเมินการให้คะแนน</a>
                                     </div>
                                 </div>
 
                                 <div class="right-section">
-                                  <div><strong>สถานะ:</strong> อยู่ระหว่างดำเนินการ</div>
-                                  <div><strong>หมายเหตุ:</strong> รอการตรวจสอบ</div>
+                                  <div><strong></strong>10/10/2025 เวลา 10:46:12</div>
+                                  <div><strong>สถานะ:</strong> รอการสอบ</div>
                                 </div>
 
                         </div>
@@ -438,25 +427,25 @@
                           <span class="close-button" onclick="closeModal('modal1')">&times;</span>
 
                             <div class="modal-header">
-                              <h2>รายละเอียดโครงงาน</h2>
+                              <h2>ประเมินการให้คะแนนโครงงาน</h2>
                             </div>
 
                             <div class="modal-body">
                               <p><strong>ชื่อโครงงาน:</strong> <span class="project-name">-</span></p>
                               <p><strong>ผู้จัดทำ:</strong> <span class="project-authors">-</span></p>
-                              <p><strong>รายละเอียด:</strong></p>
+                              <p><strong>ผลการประเมินคะแนน:</strong></p>
                               <p class="project-details">-</p>
 
                               <!-- Comment Section -->
                               <div class="comment-section">
-                                <h3 class="comment-header">ความคิดเห็น</h3>
+                                <h3 class="comment-header">หมายเหตุ*</h3>
                                 
                                 <!-- Comment Input -->
                                 <div class="comment-input-container">
                                   <textarea 
                                     class="comment-input" 
                                     placeholder="พิมพ์ความคิดเห็นของคุณที่นี่..." 
-                                    maxlength="500"
+                                    maxlength="1000"
                                     onkeyup="updateCharCount(this)"
                                   ></textarea>
                                   <div class="comment-actions">
@@ -483,19 +472,13 @@
                                       <a href="#" onclick="openModal(event, 'modal2',
                                         'ระบบจัดการโครงงานนักศึกษา',
                                         'นายสมชาย ใจดี, นางสาวสมหญิง รักเรียน',
-                                        `ระบบจัดการโครงงานนักศึกษาเป็นระบบที่ช่วยให้ทั้งนักศึกษาและอาจารย์สามารถบริหารจัดการข้อมูลโครงงานได้อย่างเป็นระบบ เช่น:
-                                          - เพิ่ม/ลบโครงงาน
-                                          - ส่งเอกสาร
-                                          - ติดตามสถานะโครงงาน
-                                          - ตรวจสอบความคืบหน้า
-
-                                          ระบบนี้ออกแบบมาให้ใช้งานง่าย และสามารถเข้าถึงได้ทุกที่ทุกเวลา ผ่านระบบออนไลน์`)">ดูรายละเอียด</a>
+                                        ``)">ประเมินการให้คะแนน</a>
                                     </div>
                                 </div>
 
                                 <div class="right-section">
-                                  <div><strong>สถานะ:</strong> อยู่ระหว่างดำเนินการ</div>
-                                  <div><strong>หมายเหตุ:</strong> รอการตรวจสอบ</div>
+                                  <div><strong></strong>9/10/2025 เวลา 21:52:24</div>
+                                  <div><strong>สถานะ:</strong> รอการสอบ</div>
                                 </div>
 
                         </div>
@@ -507,25 +490,25 @@
                           <span class="close-button" onclick="closeModal('modal2')">&times;</span>
 
                             <div class="modal-header">
-                              <h2>รายละเอียดโครงงาน</h2>
+                              <h2>ประเมินการให้คะแนนโครงงาน</h2>
                             </div>
 
                             <div class="modal-body">
                               <p><strong>ชื่อโครงงาน:</strong> <span class="project-name">-</span></p>
                               <p><strong>ผู้จัดทำ:</strong> <span class="project-authors">-</span></p>
-                              <p><strong>รายละเอียด:</strong></p>
+                              <p><strong>ผลการประเมินคะแนน:</strong></p>
                               <p class="project-details">-</p>
 
                               <!-- Comment Section -->
                               <div class="comment-section">
-                                <h3 class="comment-header">ความคิดเห็น</h3>
+                                <h3 class="comment-header">หมายเหตุ*</h3>
                                 
                                 <!-- Comment Input -->
                                 <div class="comment-input-container">
                                   <textarea 
                                     class="comment-input" 
                                     placeholder="พิมพ์ความคิดเห็นของคุณที่นี่..." 
-                                    maxlength="500"
+                                    maxlength="1000"
                                     onkeyup="updateCharCount(this)"
                                   ></textarea>
                                   <div class="comment-actions">
@@ -552,19 +535,13 @@
                                       <a href="#" onclick="openModal(event, 'modal3',
                                         'ระบบจัดการโครงงานนักศึกษา',
                                         'นายสมชาย ใจดี, นางสาวสมหญิง รักเรียน',
-                                        `ระบบจัดการโครงงานนักศึกษาเป็นระบบที่ช่วยให้ทั้งนักศึกษาและอาจารย์สามารถบริหารจัดการข้อมูลโครงงานได้อย่างเป็นระบบ เช่น:
-                                          - เพิ่ม/ลบโครงงาน
-                                          - ส่งเอกสาร
-                                          - ติดตามสถานะโครงงาน
-                                          - ตรวจสอบความคืบหน้า
-
-                                          ระบบนี้ออกแบบมาให้ใช้งานง่าย และสามารถเข้าถึงได้ทุกที่ทุกเวลา ผ่านระบบออนไลน์`)">ดูรายละเอียด</a>
+                                        ``)">ประเมินการให้คะแนน</a>
                                     </div>
                                 </div>
 
                                 <div class="right-section">
-                                  <div><strong>สถานะ:</strong> อยู่ระหว่างดำเนินการ</div>
-                                  <div><strong>หมายเหตุ:</strong> รอการตรวจสอบ</div>
+                                  <div><strong></strong>8/10/2025 เวลา 09:24:14</div>
+                                  <div><strong>สถานะ:</strong> รอการสอบ</div>
                                 </div>
 
                         </div>
@@ -576,18 +553,18 @@
                           <span class="close-button" onclick="closeModal('modal3')">&times;</span>
 
                             <div class="modal-header">
-                              <h2>รายละเอียดโครงงาน</h2>
+                              <h2>ประเมินการให้คะแนนโครงงาน</h2>
                             </div>
 
                             <div class="modal-body">
                               <p><strong>ชื่อโครงงาน:</strong> <span class="project-name">-</span></p>
                               <p><strong>ผู้จัดทำ:</strong> <span class="project-authors">-</span></p>
-                              <p><strong>รายละเอียด:</strong></p>
+                              <p><strong>ผลการประเมินคะแนน:</strong></p>
                               <p class="project-details">-</p>
 
                               <!-- Comment Section -->
                               <div class="comment-section">
-                                <h3 class="comment-header">ความคิดเห็น</h3>
+                                <h3 class="comment-header">หมายเหตุ*</h3>
                                 
                                 <!-- Comment Input -->
                                 <div class="comment-input-container">
@@ -621,19 +598,13 @@
                                       <a href="#" onclick="openModal(event, 'modal4',
                                         'ระบบจัดการโครงงานนักศึกษา',
                                         'นายสมชาย ใจดี, นางสาวสมหญิง รักเรียน',
-                                        `ระบบจัดการโครงงานนักศึกษาเป็นระบบที่ช่วยให้ทั้งนักศึกษาและอาจารย์สามารถบริหารจัดการข้อมูลโครงงานได้อย่างเป็นระบบ เช่น:
-                                          - เพิ่ม/ลบโครงงาน
-                                          - ส่งเอกสาร
-                                          - ติดตามสถานะโครงงาน
-                                          - ตรวจสอบความคืบหน้า
-
-                                          ระบบนี้ออกแบบมาให้ใช้งานง่าย และสามารถเข้าถึงได้ทุกที่ทุกเวลา ผ่านระบบออนไลน์`)">ดูรายละเอียด</a>
+                                        ``)">ประเมินการให้คะแนน</a>
                                     </div>
                                 </div>
 
                                 <div class="right-section">
-                                  <div><strong>สถานะ:</strong> อยู่ระหว่างดำเนินการ</div>
-                                  <div><strong>หมายเหตุ:</strong> รอการตรวจสอบ</div>
+                                 <div><strong></strong>7/10/2025 เวลา 07:24:53</div>
+                                  <div><strong>สถานะ:</strong> รอการสอบ</div>
                                 </div>
 
                         </div>
@@ -645,25 +616,25 @@
                           <span class="close-button" onclick="closeModal('modal4')">&times;</span>
 
                             <div class="modal-header">
-                              <h2>รายละเอียดโครงงาน</h2>
+                              <h2>ประเมินการให้คะแนนโครงงาน</h2>
                             </div>
 
                             <div class="modal-body">
                               <p><strong>ชื่อโครงงาน:</strong> <span class="project-name">-</span></p>
                               <p><strong>ผู้จัดทำ:</strong> <span class="project-authors">-</span></p>
-                              <p><strong>รายละเอียด:</strong></p>
+                              <p><strong>ผลการประเมินคะแนน:</strong></p>
                               <p class="project-details">-</p>
 
                               <!-- Comment Section -->
                               <div class="comment-section">
-                                <h3 class="comment-header">ความคิดเห็น</h3>
+                                <h3 class="comment-header">หมายเหตุ*</h3>
                                 
                                 <!-- Comment Input -->
                                 <div class="comment-input-container">
                                   <textarea 
                                     class="comment-input" 
                                     placeholder="พิมพ์ความคิดเห็นของคุณที่นี่..." 
-                                    maxlength="500"
+                                    maxlength="1000"
                                     onkeyup="updateCharCount(this)"
                                   ></textarea>
                                   <div class="comment-actions">
@@ -690,19 +661,15 @@
                                       <a href="#" onclick="openModal(event, 'modal5',
                                         'ระบบจัดการโครงงานนักศึกษา',
                                         'นายสมชาย ใจดี, นางสาวสมหญิง รักเรียน',
-                                        `ระบบจัดการโครงงานนักศึกษาเป็นระบบที่ช่วยให้ทั้งนักศึกษาและอาจารย์สามารถบริหารจัดการข้อมูลโครงงานได้อย่างเป็นระบบ เช่น:
-                                          - เพิ่ม/ลบโครงงาน
-                                          - ส่งเอกสาร
-                                          - ติดตามสถานะโครงงาน
-                                          - ตรวจสอบความคืบหน้า
-
-                                          ระบบนี้ออกแบบมาให้ใช้งานง่าย และสามารถเข้าถึงได้ทุกที่ทุกเวลา ผ่านระบบออนไลน์`)">ดูรายละเอียด</a>
+                                        `คะแนนรวมทั้งหมด: 85 / 100 
+ผลการประเมิน: ผ่าน 
+หมายเหตุ: ให้ปรับปรุงส่วนการทดสอบระบบเพิ่มเติมก่อนส่งเล่มสมบูรณ์`)">ประเมินการให้คะแนน</a>
                                     </div>
                                 </div>
 
                                 <div class="right-section">
-                                  <div><strong>สถานะ:</strong> อยู่ระหว่างดำเนินการ</div>
-                                  <div><strong>หมายเหตุ:</strong> รอการตรวจสอบ</div>
+                                  <div><strong></strong>7/10/2025 เวลา 02:54:23</div>
+                                  <div><strong>สถานะ:</strong> สอบผ่าน</div>
                                 </div>
 
                         </div>
@@ -714,25 +681,25 @@
                           <span class="close-button" onclick="closeModal('modal5')">&times;</span>
 
                             <div class="modal-header">
-                              <h2>รายละเอียดโครงงาน</h2>
+                              <h2>ประเมินการให้คะแนนโครงงาน</h2>
                             </div>
 
                             <div class="modal-body">
                               <p><strong>ชื่อโครงงาน:</strong> <span class="project-name">-</span></p>
                               <p><strong>ผู้จัดทำ:</strong> <span class="project-authors">-</span></p>
-                              <p><strong>รายละเอียด:</strong></p>
+                              <p><strong>ผลการประเมินคะแนน:</strong></p>
                               <p class="project-details">-</p>
 
                               <!-- Comment Section -->
                               <div class="comment-section">
-                                <h3 class="comment-header">ความคิดเห็น</h3>
+                                <h3 class="comment-header">หมายเหตุ*</h3>
                                 
                                 <!-- Comment Input -->
                                 <div class="comment-input-container">
                                   <textarea 
                                     class="comment-input" 
                                     placeholder="พิมพ์ความคิดเห็นของคุณที่นี่..." 
-                                    maxlength="500"
+                                    maxlength="1000"
                                     onkeyup="updateCharCount(this)"
                                   ></textarea>
                                   <div class="comment-actions">

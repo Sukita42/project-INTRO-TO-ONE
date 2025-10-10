@@ -7,6 +7,57 @@
     <link rel="stylesheet" href="style2.css">
 </head>
 
+<style>
+    /* ส่วนเฉพาะของหน้ากรรมการสอบ */
+    .exam-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .exam-card {
+      background: var(--white);
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow);
+      padding: 25px 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .exam-card .title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--gray-800);
+    }
+
+    .exam-card .student {
+      font-size: 16px;
+      color: var(--gray-700);
+    }
+
+    .exam-card .detail-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 15px;
+      color: var(--gray-700);
+      background: var(--gray-100);
+      border-radius: var(--border-radius);
+      padding: 10px 15px;
+    }
+
+    .exam-card .detail-row span {
+      flex: 1;
+      text-align: center;
+    }
+
+    .exam-card .detail-row span:last-child {
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+  </style>
+
 <body>
 <header class="header">
     <div class="logo">
@@ -49,158 +100,179 @@
     </div>
 </header>
 
-<div class="container">
-  <aside class="sidebar">
-  <!-- เมนูเชื่อมไปไฟล์อื่น -->
-    <a href="indexteacher1.html"  class="menu">อาจารย์ที่ปรึกษา</a>
-    <a href="teach2.html"   class="menu">อาจารย์ประจำวิชา</a>
-    <a href="teach3.html"   class="menu active">กรรมการสอบ</a>
-    <a href="teach4.html" class="menu">ระบบกลาง</a>
-  </aside>
 
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>กรรมการสอบ</title>
+  <link rel="stylesheet" href="style2.css">
   <style>
-  body {
-    font-family: "Sarabun", sans-serif;
-    background-color: #f5f5f5;
-    margin: 0;
-    padding: 30px;
-  }
-
-  /* กล่องหลักของแต่ละโครงงาน */
-  .project-card {
-    background: #d9d9d9;
-    border-radius: 10px;
-    padding: 15px 20px;
-    margin-bottom: 20px;
-  }
-
-  /* การจัดแนวเนื้อหา */
-  .project-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-
-  /* ส่วนซ้าย */
-  .left-section {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    font-size: 16px;
-  }
-
-  .actions {
-    display: flex;
-    gap: 15px;
-    margin-top: 5px;
-  }
-
-  .actions a {
-    text-decoration: none;
-    color: #000;
-    font-size: 15px;
-  }
-
-  /* ส่วนขวา */
-  .right-section {
-    text-align: right;
-    font-size: 15px;
-  }
-
-  .right-section div:first-child {
-    font-weight: bold;
-  }
-
-  .right-section div:last-child {
-    margin-top: 5px;
-  }
-
-  /* Responsive สำหรับจอเล็ก */
-  @media (max-width: 768px) {
-    .project-row {
+    /* ---------- ปรับเฉพาะส่วนของหน้า กรรมการสอบ ---------- */
+    .exam-container {
+      display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 25px;
+      margin-top: 30px;
     }
-    .right-section {
-      text-align: left;
+
+    .exam-box {
+      background: var(--white);
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow);
+      padding: 22px 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 16px;
     }
-  }
-</style>
+
+    .exam-box strong {
+      color: var(--gray-800);
+    }
+
+    .exam-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--gray-100);
+      border-radius: var(--border-radius);
+      padding: 12px 18px;
+      color: var(--gray-700);
+      font-size: 15px;
+    }
+
+    .exam-row span {
+      flex: 1;
+      text-align: center;
+    }
+
+    .exam-row span:last-child {
+      font-weight: 600;
+      color: var(--gray-800);
+    }
+
+    /* แก้ให้เหมือนภาพ (กล่องแยกชัด) */
+    .exam-wrapper {
+      width: 100%;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- การ์ดโครงงาน 1 -->
-  <div class="project-card">
-    <div class="project-row">
-      <div class="left-section">
-        <div><strong>ชื่อโครงงาน</strong></div>
-        <div>ชื่อผู้จัดทำ</div>
-        <div class="actions">
-          <a href="#">ดูรายละเอียดประเมินการให้คะแนน</a>
-          <a href="#">ให้ความคิดเห็น</a>
+  <!-- ส่วนหัว -->
+  <header class="header">
+    <div class="logo">
+      <img src="logo1.png" alt="KMUTNB">
+    </div>
+    <div class="btn-profile">
+      <input type="checkbox" id="toggle-dropdown" hidden>
+      <label for="toggle-dropdown" class="profile-label">
+        <div class="text">
+          <div class="name">อาจารย์สมหญิง จิงจองหอง</div>
+          <div class="role">อาจารย์</div>
         </div>
+        <div class="avatar">
+          <img src="bot.jpg" alt="Profile" class="icon"/>
+        </div>
+      </label>
+      <div class="dropdown">
+        <div class="dropdown-header">
+          <img src="bot.jpg" alt="Profile">
+          <div class="dropdown-info">
+            <h3>อาจารย์</h3>
+          </div>
+        </div>
+        <div class="dropdown-body">
+          <p class="teacher-id">0111111111111</p>
+          <p>อาจารย์สมหญิง จิงจองหอง</p>
+          <p>อาจารย์ภาควิชาเทคโนโลยีสารสนเทศ (IT)</p>
+          <p>somying@example.com</p>
+        </div>
+        <a href="index.html" class="logout">ออกจากระบบ</a>
       </div>
-      <div class="right-section">
-        <div>วัน/เดือน/ปี เวลา</div>
-        <div>รอการสอบ</div>
+    </div>
+  </header>
+
+  <!-- โครงหลัก -->
+  <div class="container">
+    <aside class="sidebar">
+      <a href="indexteacher1.html" class="menu">อาจารย์ที่ปรึกษา</a>
+      <a href="teach2.html" class="menu">อาจารย์ประจำวิชา</a>
+      <a href="teach3.html" class="menu active">กรรมการสอบ</a>
+      <a href="teach4.html" class="menu">ระบบกลาง</a>
+    </aside>
+
+     <!-- โครงหลัก -->
+  <div class="container">
+    <aside class="sidebar">
+      <a href="indexteacher1.html" class="menu">อาจารย์ที่ปรึกษา</a>
+      <a href="teach2.html" class="menu">อาจารย์ประจำวิชา</a>
+      <a href="teach3.html" class="menu active">กรรมการสอบ</a>
+      <a href="teach4.html" class="menu">ระบบกลาง</a>
+    </aside>
+
+    <div class="content-test">
+      <div class="content-layout-test">
+        <div class="exam-wrapper">
+
+          <!-- กล่องโครงงาน 1 -->
+          <div class="exam-box">
+            <div><strong>ชื่อโครงงาน:</strong> ระบบจัดการโครงงานนักศึกษา</div>
+            <div><strong>ชื่อผู้จัดทำ:</strong> นายสมชาย ใจดี</div>
+            <div class="exam-row">
+              <span>ดูรายละเอียดประเมินการให้คะแนน</span>
+              <span>ให้ความคิดเห็น</span>
+              <span>วัน/เดือน/ปี เวลา</span>
+              <span>รอการสอบ</span>
+            </div>
+          </div>
+
+          <!-- กล่องโครงงาน 2 -->
+          <div class="exam-box">
+            <div><strong>ชื่อโครงงาน:</strong> ระบบยืมคืนหนังสือออนไลน์</div>
+            <div><strong>ชื่อผู้จัดทำ:</strong> นางสาวมะลิ ขยันเรียน</div>
+            <div class="exam-row">
+              <span>ดูรายละเอียดประเมินการให้คะแนน</span>
+              <span>ให้ความคิดเห็น</span>
+              <span>วัน/เดือน/ปี เวลา</span>
+              <span>รอการสอบ</span>
+            </div>
+          </div>
+
+          <!-- กล่องโครงงาน 3 -->
+          <div class="exam-box">
+            <div><strong>ชื่อโครงงาน:</strong> ระบบติดตามความก้าวหน้าโครงงาน</div>
+            <div><strong>ชื่อผู้จัดทำ:</strong> นายบูรพา ใฝ่ดี</div>
+            <div class="exam-row">
+              <span>ดูรายละเอียดประเมินการให้คะแนน</span>
+              <span>ให้ความคิดเห็น</span>
+              <span>วัน/เดือน/ปี เวลา</span>
+              <span>รอการสอบ</span>
+            </div>
+          </div>
+
+          <!-- กล่องโครงงาน 4 -->
+          <div class="exam-box">
+            <div><strong>ชื่อโครงงาน:</strong> ระบบจัดเก็บเอกสารสหกิจศึกษา</div>
+            <div><strong>ชื่อผู้จัดทำ:</strong> นางสาวเกศรินทร์ ตั้งใจเรียน</div>
+            <div class="exam-row">
+              <span>ดูรายละเอียดประเมินการให้คะแนน</span>
+              <span>ให้ความคิดเห็น</span>
+              <span>วัน/เดือน/ปี เวลา</span>
+              <span>รอการสอบ</span>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- การ์ดโครงงาน 2 -->
-  <div class="project-card">
-    <div class="project-row">
-      <div class="left-section">
-        <div><strong>ชื่อโครงงาน</strong></div>
-        <div>ชื่อผู้จัดทำ</div>
-        <div class="actions">
-          <a href="#">ดูรายละเอียดประเมินการให้คะแนน</a>
-          <a href="#">ให้ความคิดเห็น</a>
-        </div>
-      </div>
-      <div class="right-section">
-        <div>วัน/เดือน/ปี เวลา</div>
-        <div>รอการสอบ</div>
-      </div>
-    </div>
-  </div>
 
-  <!-- การ์ดโครงงาน 3 -->
-  <div class="project-card">
-    <div class="project-row">
-      <div class="left-section">
-        <div><strong>ชื่อโครงงาน</strong></div>
-        <div>ชื่อผู้จัดทำ</div>
-        <div class="actions">
-          <a href="#">ดูรายละเอียดประเมินการให้คะแนน</a>
-          <a href="#">ให้ความคิดเห็น</a>
-        </div>
-      </div>
-      <div class="right-section">
-        <div>วัน/เดือน/ปี เวลา</div>
-        <div>รอการสอบ</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- การ์ดโครงงาน 4 -->
-  <div class="project-card">
-    <div class="project-row">
-      <div class="left-section">
-        <div><strong>ชื่อโครงงาน</strong></div>
-        <div>ชื่อผู้จัดทำ</div>
-        <div class="actions">
-          <a href="#">ดูรายละเอียดประเมินการให้คะแนน</a>
-          <a href="#">ให้ความคิดเห็น</a>
-        </div>
-      </div>
-      <div class="right-section">
-        <div>วัน/เดือน/ปี เวลา</div>
-        <div>รอการสอบ</div>
-      </div>
-    </div>
-  </div>
-
-</div>
 </body>
 </html>

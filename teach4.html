@@ -7,6 +7,149 @@
     <link rel="stylesheet" href="style2.css">
 </head>
 
+<style>
+   .container {
+    display: flex;
+    min-height: auto;
+  }
+
+  /* กล่องสรุปด้านบน */
+  .summary-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 32px;
+    width: 100%;
+    flex: 2;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .summary-box {
+    background: var(--white, #ffffff);
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+  }
+
+  .summary-box .number {
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--primary, #a33a21);
+    line-height: 1;
+  }
+
+  .summary-box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  }
+
+  .content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+/* ✅ ด้านซ้าย */
+
+/* ✅ ด้านขวา */
+.right-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* กล่องกำหนดการ */
+.schedule-section,
+.report-section {
+  padding: 10px;
+  border-radius: 12px;
+}
+
+.schedule-section h3,
+.report-section h3 {
+  margin-bottom: 12px;
+  color: #a33a21;
+  font-size: 18px;
+}
+
+.schedule-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.schedule-list li {
+  margin-bottom: 8px;
+  padding: 6px 10px;
+  border-left: 4px solid #a33a21;
+  background: #f9f7f6;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+.schedule-list .date {
+  font-weight: 600;
+  color: #a33a21;
+}
+
+/* กล่องรายงานสรุป */
+.report-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 16px;
+}
+
+.report-label {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.report-value {
+  font-size: 14px;
+  color: #a33a21;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .content-wrapper {
+    flex-direction: column;
+  }
+  .right-panel {
+    width: 100%;
+  }
+}
+
+
+  /* Responsive สำหรับจอเล็ก */
+  @media (max-width: 768px) {
+    .dashboard {
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+    .left-panel {
+      width: 100%;
+      grid-template-columns: 1fr;
+    }
+    .right-panel {
+      width: 100%;
+      align-items: center;
+      text-align: center;
+      gap: 40px;
+    }
+  }
+</style>
+
 <body>
 <header class="header">
     <div class="logo">
@@ -54,119 +197,80 @@
   <!-- เมนูเชื่อมไปไฟล์อื่น -->
     <a href="indexteacher1.html"  class="menu">อาจารย์ที่ปรึกษา</a>
     <a href="teach2.html"   class="menu">อาจารย์ประจำวิชา</a>
-    <a href="teach3.html"   class="menu">กรรมการสอบ</a>
+    <a href="teach3-1.html"   class="menu">กรรมการสอบ</a>
     <a href="teach4.html" class="menu active">ระบบกลาง</a>
   </aside>
 
-  <style>
-  body {
-    font-family: "Sarabun", sans-serif;
-    background-color: #f5f5f5;
-    margin: 0;
-    padding: 30px;
-  }
+  <div class="content-test">
+    <div class="content-layout-test">
 
-  .dashboard {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
+                      <div class="content-wrapper">
+                      <!-- ส่วนสรุปด้านบน -->
+                        <div class="summary-container">
+                                <div class="summary-box">
+                                    <div>จำนวนนักศึกษา</div>
+                                    <div class="number">458</div>
+                                    <div>คน</div>
+                                </div>
 
-  /* พื้นที่ด้านซ้าย */
-  .left-panel {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-    width: 65%;
-  }
+                                <div class="summary-box">
+                                    <div>จำนวนอาจารย์ประจำวิชา</div>
+                                    <div class="number">26</div>
+                                    <div>คน</div>
+                                </div>
 
-  .info-box {
-    background: #d9d9d9;
-    border-radius: 10px;
-    height: 180px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: 18px;
-    font-weight: 500;
-  }
+                                <div class="summary-box">
+                                    <div>จำนวนอาจารย์ที่ปรึกษา</div>
+                                    <div class="number">14</div>
+                                    <div>คน</div>
+                                </div>
+                                
+                                <div class="summary-box">
+                                    <div>จำนวนกรรมการสอบ</div>
+                                    <div class="number">35</div>
+                                    <div>คน</div>
+                                </div>
+                        </div>
 
-  .info-box .count {
-    font-size: 30px;
-    font-weight: bold;
-    margin-top: 10px;
-  }
+                        <!-- ✅ ส่วนใหม่ด้านขวา -->
+                          <div class="right-panel">
+                            <!-- กำหนดการสอบ -->
+                            <div class="schedule-section">
+                              <h3>📅 กำหนดการสอบ</h3>
+                              <ul class="schedule-list">
+                                <li><span class="date">10 ตุลาคม 2568</span> – สอบหัวข้อโครงงานรอบที่ 1</li>
+                                <li><span class="date">15 ตุลาคม 2568</span> – ส่งรายงานความก้าวหน้า ครั้ง ที่ 1</li>
+                                <li><span class="date">30 ตุลาคม 2568</span> – สอบความก้าวหน้าโครงงาน</li>
+                                <li><span class="date">10 พฤศจิกายน 2568</span> – สอบป้องกันเล่มสมบูรณ์</li>
+                              </ul>
+                            </div>
 
-  /* พื้นที่ด้านขวา */
-  .right-panel {
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    gap: 120px; /* ระยะห่างระหว่างบรรทัด */
-    padding-top: 20px;
-  }
+                            <!-- รายงานสรุป -->
+                            <div class="report-section">
+                              <h3>📊 รายงานสรุปโครงงาน</h3>
+                              <div class="report-grid">
+                                <div class="report-box">
+                                  <div class="report-label">จำนวนโครงงานทั้งหมด</div>
+                                  <div class="report-value">20 โครงงาน</div>
+                                </div>
+                                <div class="report-box">
+                                  <div class="report-label">จำนวนโครงงานที่สอบผ่าน</div>
+                                  <div class="report-value">12 โครงงาน</div>
+                                </div>
+                                <div class="report-box">
+                                  <div class="report-label">จำนวนโครงงานที่รอดำเนินการ</div>
+                                  <div class="report-value">5 โครงงาน</div>
+                                </div>
+                                <div class="report-box">
+                                  <div class="report-label">จำนวนโครงงานที่ยังไม่ผ่าน</div>
+                                  <div class="report-value">3 โครงงาน</div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
 
-  .right-panel p {
-    font-size: 18px;
-    font-weight: 600;
-  }
-
-  /* Responsive สำหรับจอเล็ก */
-  @media (max-width: 768px) {
-    .dashboard {
-      flex-direction: column;
-      align-items: center;
-      gap: 40px;
-    }
-    .left-panel {
-      width: 100%;
-      grid-template-columns: 1fr;
-    }
-    .right-panel {
-      width: 100%;
-      align-items: center;
-      text-align: center;
-      gap: 40px;
-    }
-  }
-</style>
-</head>
-<body>
-
-  <div class="dashboard">
-    <!-- ส่วนซ้าย -->
-    <div class="left-panel">
-      <div class="info-box">
-        <div>จำนวนนักศึกษาในระบบ</div>
-        <div class="count">45 คน</div>
-      </div>
-
-      <div class="info-box">
-        <div>จำนวนอาจารย์ประจำวิชาในระบบ</div>
-        <div class="count">12 คน</div>
-      </div>
-
-      <div class="info-box">
-        <div>จำนวนอาจารย์ที่ปรึกษาในระบบ</div>
-        <div class="count">8 คน</div>
-      </div>
-
-      <div class="info-box">
-        <div>จำนวนกรรมการสอบในระบบ</div>
-        <div class="count">10 คน</div>
-      </div>
-    </div>
-
-    <!-- ส่วนขวา -->
-    <div class="right-panel">
-      <p>กำหนดกรรมการสอบ</p>
-      <p>รายงานสรุปโครงงาน</p>
+                      </div>
     </div>
   </div>
-  
-</div>
 </body>
 </html>

@@ -7,8 +7,206 @@
     <link rel="stylesheet" href="style2.css">
 </head>
 
+  <style>
+  /* Main content */
+  .content-test {
+    flex: 1;
+    padding: 120px;
+  }
+
+  .content-layout-test {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+  }
+
+  .left-panel {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .right-panel {
+    flex: 1;
+    border-radius: var(--border-radius-lg);
+    padding: 20px;
+  }
+
+  .right-panel h3 {
+    border-bottom: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    padding-bottom: 6px;
+  }
+
+  .exam-schedule ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .exam-schedule li {
+    background: var(--gray-100);
+    border-radius: var(--border-radius);
+    padding: 10px;
+    margin-bottom: 8px;
+  }
+
+  .summary-boxes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .summary-item {
+    background: var(--gray-100);
+    border-radius: var(--border-radius);
+    text-align: center;
+    padding: 10px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .summary-item strong {
+    color: var(--primary-color);
+    display: block;
+    font-size: 22px;
+  }
+
+  /* Project cards */
+  .project-card {
+    background: var(--gray-100);
+    border-radius: var(--border-radius-lg);
+    padding: 18px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+
+  .project-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+  }
+
+  .project-left p, .project-right p {
+    margin: 5px 0;
+    font-size: 15px;
+  }
+
+  .project-actions {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+  }
+
+  .btn-detail, .btn-comment {
+    padding: 6px 14px;
+    border-radius: var(--border-radius);
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+  }
+
+  .btn-detail {
+    background: var(--primary-color);
+    color: var(--white);
+  }
+
+  .btn-detail:hover {
+    background: var(--primary-dark);
+  }
+
+  .btn-comment {
+    background: var(--white);
+    color: var(--primary-color);
+    border: 1.5px solid var(--primary-color);
+  }
+
+  .btn-comment:hover {
+    background: var(--primary-color);
+    color: var(--white);
+  }
+
+  /* Modal Popup */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal-content {
+    background-color: var(--white);
+    padding: 25px 30px;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-lg);
+    width: 600px;
+    max-width: 90%;
+    animation: fadeIn 0.3s ease;
+    position: relative;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .close-button {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 26px;
+    font-weight: bold;
+    color: var(--gray-600);
+    cursor: pointer;
+  }
+
+  .close-button:hover {
+    color: var(--primary-color);
+  }
+
+  .comment-input {
+    width: 100%;
+    min-height: 120px;
+    border: 1px solid var(--gray-300);
+    border-radius: var(--border-radius);
+    padding: 10px;
+    font-size: 14px;
+    resize: vertical;
+    margin-top: 10px;
+  }
+
+  .comment-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .btn-submit-comment {
+    padding: 8px 16px;
+    background: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+  }
+
+  .btn-submit-comment:hover {
+    background: var(--primary-dark);
+  }
+  </style>
+</head>
+
 <body>
-<header class="header">
+  <header class="header">
     <div class="logo">
         <img src="logo1.png" alt="KMUTNB" />
     </div>
@@ -37,7 +235,7 @@
                     </div>
                 </div>
                 <div class="dropdown-body">
-                    <p class="teacher-id">1111111111111</p>
+                    <p class="teacher-id">0111111111111</p>
                     <p>อาจารย์สมหญิง จิงจองหอง</p>
                     <p>อาจารย์ภาควิชาเทคโนโลยีสารสนเทศ (IT)</p>
                     <p>somying@example.com</p>
@@ -50,28 +248,262 @@
 </header>
 
 <div class="container">
-    <aside class="sidebar">
-    <!-- เมนูเชื่อมไปไฟล์อื่น -->
-        <a href="indexteacher1.html"  class="menu active">อาจารย์ที่ปรึกษา</a>
-        <a href="teach2.html"   class="menu">อาจารย์ประจำวิชา</a>
-        <a href="teach3.html"   class="menu">กรรมการสอบ</a>
-        <a href="teach4.html" class="menu">ระบบกลาง</a>
-    </aside>
+  <aside class="sidebar">
+  <!-- เมนูเชื่อมไปไฟล์อื่น -->
+    <a href="indexteacher1.html"  class="menu  active">อาจารย์ที่ปรึกษา</a>
+    <a href="teach2.html"   class="menu">อาจารย์ประจำวิชา</a>
+    <a href="teach3-1.html"   class="menu">กรรมการสอบ</a>
+    <a href="teach4.html" class="menu">ระบบกลาง</a>
+  </aside>
 
-        <div class="content-test">
-            <div class="content-layout-test">
-                <div class="major">
-                    <label for="major">สาขาวิชา
-                        <select id="major">
-                            <option>สาขาวิชาเทคโนโลยีสารสนเทศ (IT)</option>
-                            <option>สาขาวิชาเทคโนโลยีสารสนเทศ เทียบโอน (ITI)</option>
-                            <option>สาขาวิชาวิศวกรรมสารสนเทศและเครือข่าย (INE)</option>
-                            <option>สาขาวิชาวิศวกรรมสารสนเทศและเครือข่าย เทียบโอน(INET)</option>
-                        </select>
-                    </label>
-                </div>
+    <div class="content-test">
+      <div class="content-layout-test">
+
+        <!-- Left panel -->
+        <div class="left-panel">
+
+          <!-- การ์ดโครงงาน 2 -->
+          <div class="project-card">
+            <div class="project-left">
+              <p><strong>ชื่อโครงงาน:</strong> ระบบเช่ารถออนไลน์</p>
+              <p><strong>ผู้จัดทำ:</strong> นายอนุชา เดชะ, นางสาวพิมพ์ใจ จิตดี</p>
+              <div class="project-actions">
+                <a href="#" class="btn-detail"
+                   onclick="openModal('ระบบเช่ารถออนไลน์', 
+                   'นายอนุชา เดชะ, นางสาวพิมพ์ใจ จิตดี', 
+                   'ระบบเช่ารถออนไลน์สำหรับลูกค้า สามารถเลือกและจองรถได้ผ่านเว็บไซต์.')">
+                   ดูรายละเอียด
+                </a>
+                <a href="#" class="btn-comment"
+                   onclick="openModal('ระบบเช่ารถออนไลน์', 
+                   'นายอนุชา เดชะ, นางสาวพิมพ์ใจ จิตดี',
+                   'ช่วยพัฒนา UX และระบบแจ้งเตือนการจองให้ดียิ่งขึ้น.')">
+                   ให้ความคิดเห็น
+                </a>
+              </div>
+            </div>
+            <div class="project-right">
+              <p><strong>สถานะ:</strong> สอบผ่าน</p>
+              <p><strong>ความก้าวหน้า:</strong> 100%</p>
+            </div>
+          </div>
+
+          <!-- การ์ดโครงงาน 3 -->
+          <div class="project-card">
+            <div class="project-left">
+              <p><strong>ชื่อโครงงาน:</strong> ระบบจองห้องประชุมอัจฉริยะ</p>
+              <p><strong>ผู้จัดทำ:</strong> นายปกรณ์ กิจดี</p>
+              <div class="project-actions">
+                <a href="#" class="btn-detail"
+                   onclick="openModal('ระบบจองห้องประชุมอัจฉริยะ', 
+                   'นายปกรณ์ กิจดี', 
+                   'ระบบสำหรับจองห้องประชุมผ่านเครือข่าย มีการตรวจสอบเวลาว่างอัตโนมัติ.')">
+                   ดูรายละเอียด
+                </a>
+                <a href="#" class="btn-comment"
+                   onclick="openModal('ระบบจองห้องประชุมอัจฉริยะ', 
+                   'นายปกรณ์ กิจดี',
+                   'ควรเพิ่มระบบแจ้งเตือนเมื่อใกล้ถึงเวลาการประชุม.')">
+                   ให้ความคิดเห็น
+                </a>
+              </div>
+            </div>
+            <div class="project-right">
+              <p><strong>สถานะ:</strong> อยู่ระหว่างดำเนินการ</p>
+              <p><strong>ความก้าวหน้า:</strong> 60%</p>
+            </div>
+          </div>
+
+          <!-- การ์ดโครงงาน 4 -->
+          <div class="project-card">
+            <div class="project-left">
+              <p><strong>ชื่อโครงงาน:</strong> ระบบร้านอาหารออนไลน์</p>
+              <p><strong>ผู้จัดทำ:</strong> นางสาวพรรณราย บุญมาก</p>
+              <div class="project-actions">
+                <a href="#" class="btn-detail"
+                   onclick="openModal('ระบบร้านอาหารออนไลน์', 
+                   'นางสาวพรรณราย บุญมาก', 
+                   'ระบบสำหรับสั่งอาหารออนไลน์ เชื่อมต่อกับระบบจัดส่งอัตโนมัติ.')">
+                   ดูรายละเอียด
+                </a>
+                <a href="#" class="btn-comment"
+                   onclick="openModal('ระบบร้านอาหารออนไลน์', 
+                   'นางสาวพรรณราย บุญมาก',
+                   'แนะนำให้เพิ่มระบบรีวิวร้านอาหารและการให้ดาว.')">
+                   ให้ความคิดเห็น
+                </a>
+              </div>
+            </div>
+            <div class="project-right">
+              <p><strong>สถานะ:</strong> อยู่ระหว่างประเมิน</p>
+              <p><strong>ความก้าวหน้า:</strong> 85%</p>
+            </div>
+          </div>
+
+          <!-- การ์ดโครงงาน 5 -->
+          <div class="project-card">
+            <div class="project-left">
+              <p><strong>ชื่อโครงงาน:</strong> ระบบติดตามพัสดุภายในองค์กร</p>
+              <p><strong>ผู้จัดทำ:</strong> นายวชิระ อินทร</p>
+              <div class="project-actions">
+                <a href="#" class="btn-detail"
+                   onclick="openModal('ระบบติดตามพัสดุภายในองค์กร', 
+                   'นายวชิระ อินทร', 
+                   'ระบบสำหรับติดตามสถานะพัสดุระหว่างแผนกผ่านเครือข่ายภายใน.')">
+                   ดูรายละเอียด
+                </a>
+                <a href="#" class="btn-comment"
+                   onclick="openModal('ระบบติดตามพัสดุภายในองค์กร', 
+                   'นายวชิระ อินทร',
+                   'เสนอให้เพิ่มการแจ้งเตือนผ่านอีเมลเมื่อพัสดุถึงปลายทาง.')">
+                   ให้ความคิดเห็น
+                </a>
+              </div>
+            </div>
+            <div class="project-right">
+              <p><strong>สถานะ:</strong> ยังไม่ผ่าน</p>
+              <p><strong>ความก้าวหน้า:</strong> 45%</p>
+            </div>
+          </div>
+
+          <!-- ✅ เพิ่มการ์ดโครงงานที่ 6 -->
+        <div class="project-card">
+        <div class="project-left">
+            <p><strong>ชื่อโครงงาน:</strong> ระบบจัดการคลังสินค้าอัจฉริยะ</p>
+            <p><strong>ผู้จัดทำ:</strong> นายเกรียงศักดิ์ มั่นคง, นางสาวสุชาดา ใจงาม</p>
+            <div class="project-actions">
+            <a href="#" class="btn-detail"
+                onclick="openModal('ระบบจัดการคลังสินค้าอัจฉริยะ',
+                'นายเกรียงศักดิ์ มั่นคง, นางสาวสุชาดา ใจงาม',
+                'ระบบช่วยจัดการคลังสินค้าแบบอัตโนมัติ มีระบบสแกนบาร์โค้ดและตรวจสอบจำนวนสินค้าคงเหลือแบบเรียลไทม์.')">
+                ดูรายละเอียด
+            </a>
+            <a href="#" class="btn-comment"
+                onclick="openModal('ระบบจัดการคลังสินค้าอัจฉริยะ',
+                'นายเกรียงศักดิ์ มั่นคง, นางสาวสุชาดา ใจงาม',
+                'แนะนำให้เพิ่มการแจ้งเตือนอัตโนมัติเมื่อสินค้าใกล้หมดสต็อก.')">
+                ให้ความคิดเห็น
+            </a>
             </div>
         </div>
-</div>
+        <div class="project-right">
+            <p><strong>สถานะ:</strong> อยู่ระหว่างดำเนินการ</p>
+            <p><strong>ความก้าวหน้า:</strong> 70%</p>
+        </div>
+        </div>
+
+        <!-- ✅ เพิ่มการ์ดโครงงานที่ 7 -->
+        <div class="project-card">
+        <div class="project-left">
+            <p><strong>ชื่อโครงงาน:</strong> ระบบจองตั๋วภาพยนตร์ออนไลน์</p>
+            <p><strong>ผู้จัดทำ:</strong> นายปิยะวัฒน์ ศรีธรรม, นางสาวศศิธร ธนกิจ</p>
+            <div class="project-actions">
+            <a href="#" class="btn-detail"
+                onclick="openModal('ระบบจองตั๋วภาพยนตร์ออนไลน์',
+                'นายปิยะวัฒน์ ศรีธรรม, นางสาวศศิธร ธนกิจ',
+                'ระบบจองตั๋วหนังออนไลน์ที่สามารถเลือกที่นั่ง ตรวจสอบรอบฉาย และชำระเงินออนไลน์ได้ทันที.')">
+                ดูรายละเอียด
+            </a>
+            <a href="#" class="btn-comment"
+                onclick="openModal('ระบบจองตั๋วภาพยนตร์ออนไลน์',
+                'นายปิยะวัฒน์ ศรีธรรม, นางสาวศศิธร ธนกิจ',
+                'ควรเพิ่มระบบแจ้งเตือนรอบภาพยนตร์ผ่านแอปพลิเคชัน.')">
+                ให้ความคิดเห็น
+            </a>
+            </div>
+        </div>
+        <div class="project-right">
+            <p><strong>สถานะ:</strong> รอการสอบ</p>
+            <p><strong>ความก้าวหน้า:</strong> 90%</p>
+        </div>
+        </div>
+
+        </div>
+
+        <!-- Right panel -->
+        <div class="right-panel">
+          <h3>กำหนดการสอบ</h3>
+          <div class="exam-schedule">
+            <ul>
+              <li> 10 ต.ค. 2568 - สอบหัวข้อครั้งที่ 1</li>
+              <li> 17 ต.ค. 2568 - สอบหัวข้อครั้งที่ 2</li>
+              <li> 25 ต.ค. 2568 - ส่งเอกสารสรุปผล</li>
+            </ul>
+          </div>
+
+          <h3>รายงานสรุป</h3>
+          <div class="summary-boxes">
+            <div class="summary-item"><span>โครงงานทั้งหมด</span><strong>15</strong></div>
+            <div class="summary-item"><span>สอบผ่าน</span><strong>8</strong></div>
+            <div class="summary-item"><span>รอดำเนินการ</span><strong>5</strong></div>
+            <div class="summary-item"><span>ยังไม่ผ่าน</span><strong>2</strong></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== Modal Popup ===================== -->
+  <div id="projectModal" class="modal">
+    <div class="modal-content">
+      <span class="close-button" onclick="closeModal()">&times;</span>
+      <div class="modal-header">
+        <h2 id="modal-title">รายละเอียดโครงงาน</h2>
+      </div>
+      <div class="modal-body">
+        <p><strong>ชื่อโครงงาน:</strong> <span id="modal-project-name">-</span></p>
+        <p><strong>ผู้จัดทำ:</strong> <span id="modal-authors">-</span></p>
+        <p><strong>รายละเอียด:</strong></p>
+        <p id="modal-description">-</p>
+        <hr>
+        <div class="comment-section">
+          <h3 class="comment-header"> แสดงความคิดเห็น</h3>
+          <textarea id="comment-input" class="comment-input" placeholder="พิมพ์ความคิดเห็นของคุณที่นี่..." maxlength="1000"></textarea>
+          <div class="comment-actions">
+            <div class="comment-char-count" id="char-count">0/1000 ตัวอักษร</div>
+            <button class="btn-submit-comment" onclick="submitComment()">ส่งความคิดเห็น</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openModal(projectName, authors, description) {
+      document.getElementById('modal-project-name').textContent = projectName;
+      document.getElementById('modal-authors').textContent = authors;
+      document.getElementById('modal-description').textContent = description;
+      document.getElementById('projectModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('projectModal').style.display = 'none';
+    }
+
+    document.getElementById('comment-input').addEventListener('input', function() {
+      const count = this.value.length;
+      document.getElementById('char-count').textContent = count + '/1000 ตัวอักษร';
+    });
+
+    function submitComment() {
+      const comment = document.getElementById('comment-input').value.trim();
+      if (comment === "") {
+        alert("⚠️ กรุณากรอกความคิดเห็นก่อนส่ง");
+        return;
+      }
+      alert("✅ ส่งความคิดเห็นเรียบร้อยแล้ว");
+      document.getElementById('comment-input').value = "";
+      document.getElementById('char-count').textContent = '0/1000 ตัวอักษร';
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById('projectModal');
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    };
+  </script>
+
 </body>
 </html>
